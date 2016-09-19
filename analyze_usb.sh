@@ -11,9 +11,20 @@ echo "---------------------------------"
 echo -n "Enter sample file location(sample4.E0*) and press [ENTER]: "
 read file
 mmls $file
+echo -n "Will run sigfind..."
 waitForEnter
+sigfind -o 510 55aa $file
 echo "---------------------------------"
-echo -n "Enter Offset for fls and press [ENTER]: "
+echo -n "Enter Offset for new mmls try and press [ENTER]: "
+read offset
+waitForEnter
+mmls -o $offset $file
+echo "---------------------------------"
+echo -n "Enter usb_stick image file location(usb_stick.E01) and press [ENTER]: "
+read file
+mmls $file
+echo "---------------------------------"
+echo -n "Enter Offset and press [ENTER]: "
 read offset
 echo "---------------------------------"
 echo -n "Enter pattern to grep for and press [ENTER]: "
